@@ -1,0 +1,74 @@
+* undo-tree
+
+This is a fork of the [[https://github.com/emacsmirror/undo-tree.git][emacsmirror version of undo-tree]].  The original undo-tree can be found [[http://www.dr-qubit.org/undo-tree.html][here]].
+
+The original description of this package follows below:
+
+* Emacs: Undo Tree package
+
+Emacs has a powerful undo system. Unlike the standard undo/redo system in most software, it allows you to recover any past state of a buffer (whereas the standard undo/
+redo system can lose past states as soon as you redo). However, this power comes at a price: many people find Emacs' undo system confusing and difficult to use, spawning a
+number of packages that replace it with the less powerful but more intuitive undo/redo system. (See the [[http://www.emacswiki.org/emacs/CategoryUndo][Emacs Wiki]].)
+
+Both the loss of data with standard undo/redo, and the confusion of Emacs' undo, stem from trying to treat undo history as a linear sequence of changes. It's not. The
+undo-tree-mode provided by this package replaces Emacs' undo system with a system that treats undo history as what it is: a branching tree of changes. This simple idea
+allows the more intuitive behaviour of the standard undo/redo system to be combined with the power of never losing any history. An added side bonus is that undo history
+can in some cases be stored more efficiently, allowing more changes to accumulate before Emacs starts discarding history.
+
+It gets better. You don't have to imagine the undo tree, because undo-tree-mode includes an undo-tree visualizer which draws it for you, and lets you browse around the
+undo history.
+
+The only downside to this more advanced yet simpler undo system is that it was inspired by Vim. But, after all, most successful religions steal the best ideas from their
+competitors!
+
+** Documentation
+
+Details of the undo-tree-mode commands and key bindings can be found in the [[http://www.dr-qubit.org/download.php?file=undo-tree/undo-tree.txt][Commentary section]] at the top of the undo-tree.el file itself, along with an extended
+explanation (with diagrams!) of the differences between the undo-tree-mode, standard Emacs' undo, and undo/redo systems.
+
+The commands themselves are all documented using the standard, built-in Emacs documentation features. Customization options can be found under the undo-tree customization
+group.
+
+** Download and Installation
+
+In recent versions of Emacs (>=24.1), you can install the Undo-Tree package from within Emacs itself, via [[http://elpa.gnu.org/][GNU ELPA]]. Use M-x list-packages and take it from there. This is
+the preferred installation method. (Occasionally, the ELPA version might lag slightly behind the latest version available here.)
+
+The current "stable" release of the Undo-Tree package is version 0.6.4 (released August 2013). It's relatively stable, though bug fixes and new features are added
+occasionally. (A few older versions are also available below, but are no longer supported.)
+
+If you want to live on the bleeding edge, the latest "development" version of the Undo-Tree package is hosted in a git repository.
+
+  * Git repository: http://www.dr-qubit.org/git/undo-tree.git
+  * [[http://www.dr-qubit.org/download.php?file=undo-tree/undo-tree.el][Current version]] (0.6.4)
+  * [[http://www.dr-qubit.org/download.php?file=undo-tree/undo-tree-0.5.5.el][Version 0.5.5]]
+  * [[http://www.dr-qubit.org/download.php?file=undo-tree/undo-tree-0.4.el][Version 0.4]]
+  * [[http://www.dr-qubit.org/download.php?file=undo-tree/undo-tree-0.3.4.el][Version 0.3.4]]
+  * [[http://www.dr-qubit.org/download.php?file=undo-tree/undo-tree-0.2.1.el][Version 0.2.1]]
+  * [[http://www.dr-qubit.org/download.php?file=undo-tree/undo-tree-0.1.7.el][Version 0.1.7]]
+
+Note that the git repository URL is a git repository, not a web-site. You cannot view it in a web browser. To grab the latest development version, clone the repository
+using something like:
+
+git clone http://www.dr-qubit.org/git/undo-tree.git
+
+Unless you obtained Undo-Tree from ELPA (which takes care of package installation for you), to install the Undo-Tree package, simply save the undo-tree.el file to a
+directory in your Emacs load-path, and add the line:
+
+(require 'undo-tree)
+
+to your .emacs file. M-x undo-tree-mode will then enable undo-tree-mode in the current buffer.
+
+If you want to replace the standard Emacs' undo system with the Undo-Tree system in all normal buffers, you can enable undo-tree-mode globally by adding:
+
+(global-undo-tree-mode)
+
+to your .emacs file.
+
+Bugs, Feature Requests, and Contributing
+
+Bugs, feature requests, and any other feedback should be addressed to [[mailto:toby-undo-tree@dr-qubit.org][toby-undo-tree@dr-qubit.org]]. (Note that this address is protected by the TMDA spam-reduction system.
+The first time you send an email, you will have to [[http://www.dr-qubit.org/email.html][verify your address]] by replying to a confirmation message.)
+
+If you have code you would like to contribute to Undo-Tree, either send a patch against the latest development version to [[mailto:toby-undo-tree@dr-qubit.org][toby-undo-tree@dr-qubit.org]]. Or, better still,
+use git, rebase your work against the latest git master, and let me know where to find your clone of the Undo-Tree repository so that I can pull your changes.
